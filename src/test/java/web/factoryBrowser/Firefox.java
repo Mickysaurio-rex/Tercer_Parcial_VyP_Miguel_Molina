@@ -1,0 +1,18 @@
+package web.factoryBrowser;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+import java.time.Duration;
+
+public class Firefox implements  IBrowser{
+    @Override
+    public WebDriver create() {
+
+        System.setProperty("webdriver.gecko.driver","src/test/resources/driver/geckodriver.exe");
+        WebDriver firefox = new FirefoxDriver();
+        firefox.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+        firefox.manage().window().maximize();
+        return firefox;
+    }
+}
